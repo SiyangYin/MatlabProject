@@ -1,0 +1,17 @@
+ncdisp('test.nc');
+plevel=ncread('test.nc','plevel');
+% find the missing(bad) measurement.
+[i,j]=find(pevel==-9999);
+% delete the missing(bad) measurement.
+[p_row,p_col]=size(plvevel);
+plevel_=plevel(i+1:p_row,p_col);  
+zenith=ncread('test.nc','zenith');
+rad_up=ncread('test.nc','rad_up');
+rad_up_mean=squeeze(mean(mean(mean(rad_up(:,:,1,:,:)),4),5));
+% delete the missing (bad) measurement.
+[r_row,r_col]=size(rad_up_mean);
+rad_up_mean_=rad_up_mean(r_row,i+1:r_col); 
+plot(plevel_,rad_up_mean_);
+title('Mean spectra at all the levels of test');
+xlabel('Pressure levels');
+ylabel('Mean radiance spectra');

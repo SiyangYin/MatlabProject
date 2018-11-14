@@ -1,0 +1,32 @@
+function [] = strdNYSAM(txdwbt_16)
+strd=squeeze(mean(txdwbt_16));
+strd_1=strd(:,:,1);
+strd_2=strd(:,:,2);
+strd_3=strd(:,:,3);
+strd_4=strd(:,:,4);
+strd_5=strd(:,:,5);
+strd_6=strd(:,:,6);
+strd_7=strd(:,:,7);
+strd_8=strd(:,:,8);
+strd_9=strd(:,:,9);
+strd_(1)=mean(strd_1(strd_1~=0));
+strd_(2)=mean(strd_2(strd_2~=0));
+strd_(3)=mean(strd_3(strd_3~=0));
+strd_(4)=mean(strd_4(strd_4~=0));
+strd_(5)=mean(strd_5(strd_5~=0));
+strd_(6)=mean(strd_6(strd_6~=0));
+strd_(7)=mean(strd_7(strd_7~=0));
+strd_(8)=mean(strd_8(strd_8~=0));
+strd_(9)=mean(strd_9(strd_9~=0));
+figure;
+t=2001:2009;
+plot(t,strd_,'k-*','LineWidth',2);
+set(gca,'XTick',2001:2009);
+axis([2001 2009 305 318]);
+legend('Surface thermal radiation downwards for full sky (w/m^2)','Location','NorthWest');
+title({'Annual mean time series of Surface thermal radiation downwards for full sky (w/m^2)','in New York State(42.5°N, 75.0°W) from 2001 to 2009 from ISCCP'});
+xlabel('Years from 2001 to 2009');
+%title({'Diurnal cycle of Surface thermal radiation downwards for full sky (w/m^2)',strcat('in New York State(42.5°N, 75.0°W) in',32,im_,32,id_,32,iy_,32,'year from ISCCP')});
+%xlabel('Local Hour');
+ylabel('Surface thermal radiation downwards for full sky (w/m^2)');
+end

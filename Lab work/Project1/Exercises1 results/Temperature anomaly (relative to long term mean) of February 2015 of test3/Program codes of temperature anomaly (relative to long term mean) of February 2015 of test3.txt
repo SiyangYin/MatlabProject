@@ -1,0 +1,14 @@
+ncdisp('test3.nc');
+lat=ncread('test3.nc','latitude');
+lon=ncread('test3.nc','longitude');
+time=ncread('test3.nc','time');
+t2m=ncread('test3.nc','t2m');
+t2m_=squeeze(mean(mean(t2m)));
+t2m_mean=squeeze(mean(t2m_));
+[i,j]=size(t2m_);
+t2m_mean_=t2m_mean*ones(i,j);
+anomaly=t2m_-t2m_mean_;
+plot(time,anomaly);
+title('temperature anomaly (relative to long term mean) of February 2015 of test3');
+xlabel('hours since 1900-01-01 00:00:0.0');
+ylabel('2 metre temperature');

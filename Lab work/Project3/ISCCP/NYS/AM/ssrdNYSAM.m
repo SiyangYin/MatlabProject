@@ -1,0 +1,32 @@
+function [] = ssrdNYSAM(sxdwbt_14)
+ssrd=squeeze(mean(sxdwbt_14));
+ssrd_1=ssrd(:,:,1);
+ssrd_2=ssrd(:,:,2);
+ssrd_3=ssrd(:,:,3);
+ssrd_4=ssrd(:,:,4);
+ssrd_5=ssrd(:,:,5);
+ssrd_6=ssrd(:,:,6);
+ssrd_7=ssrd(:,:,7);
+ssrd_8=ssrd(:,:,8);
+ssrd_9=ssrd(:,:,9);
+ssrd_(1)=mean(ssrd_1(ssrd_1~=0));
+ssrd_(2)=mean(ssrd_2(ssrd_2~=0));
+ssrd_(3)=mean(ssrd_3(ssrd_3~=0));
+ssrd_(4)=mean(ssrd_4(ssrd_4~=0));
+ssrd_(5)=mean(ssrd_5(ssrd_5~=0));
+ssrd_(6)=mean(ssrd_6(ssrd_6~=0));
+ssrd_(7)=mean(ssrd_7(ssrd_7~=0));
+ssrd_(8)=mean(ssrd_8(ssrd_8~=0));
+ssrd_(9)=mean(ssrd_9(ssrd_9~=0));
+figure;
+t=2001:2009;
+plot(t,ssrd_,'k-*','LineWidth',2);
+set(gca,'XTick',2001:2009);
+axis([2001 2009 146 167]);
+legend('Surface solar radiation downwards for full sky (w/m^2)','Location','NorthWest');
+title({'Annual mean time series of Surface solar radiation downwards for full sky (w/m^2)','in New York State(42.5°N, 75.0°W) from 2001 to 2009 from ISCCP'});
+xlabel('Years from 2001 to 2009');
+%title({'Diurnal cycle of Surface solar radiation downwards for full sky (w/m^2)',strcat('in New York State(42.5°N, 75.0°W) in',32,im_,32,id_,32,iy_,32,'year from ISCCP')});
+%xlabel('Local Hour');
+ylabel('Surface solar radiation downwards for full sky (w/m^2)');
+end

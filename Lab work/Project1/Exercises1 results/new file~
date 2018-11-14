@@ -1,0 +1,6 @@
+lat=hdfread('AIRS.2015.01.07.001.L2.RetStd_IR.v6.0.11.0.G15007144153.hdf','Latitude');
+lon=hdfread('AIRS.2015.01.07.001.L2.RetStd_IR.v6.0.11.0.G15007144153.hdf','Longitude');
+plot(lon,lat);
+title('Locations of the AIRS data on a global map');
+xlabel('Longitude');
+ylabel('Latitude');

@@ -1,0 +1,20 @@
+ncdisp('test.nc');
+lat=ncread('test.nc','lat');
+lon=ncread('test.nc','lon');
+zenith=ncread('test.nc','zenith');
+rad_up=ncread('test.nc','rad_up');
+rad_up_=squeeze(mean(mean(rad_up(:,:,1,:,:))))';
+figure;
+contourf(lon,lat,rad_up_);
+colorbar;
+colorbar('Direction','Reverse');
+%
+hold on;
+coast=load('coast');
+plot(coast.long,coast.lat,'k');
+axis([-180 180 -90 90]);
+grid on;
+%
+title('locations of the radiance data of test.nc');
+xlabel('Longitude');
+ylabel('Latitude');
